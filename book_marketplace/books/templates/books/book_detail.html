@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>{{ book.title }}</h2>
+  <p>Author: {{ book.author }}</p>
+  <p>ISBN: {{ book.isbn }}</p>
+  <p>Price: €{{ book.price }}</p>
+  {% if user.is_authenticated and user != book.seller %}
+    <a href="{% url 'buy_book' book.pk %}">Buy this Book</a>
+  {% endif %}
+  <a href="{% url 'book_list' %}">Back to list</a>
+{% endblock %}
