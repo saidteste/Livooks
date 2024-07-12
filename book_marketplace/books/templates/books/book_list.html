@@ -9,11 +9,11 @@
         - €{{ book.price }}
         {% if user.is_authenticated and user != book.seller %}
           <a href="{% url 'buy_book' book.pk %}">Buy</a>
-        {% endif %}
+        {% endif %} 
       </li>
     {% endfor %}
   </ul>
-  {% if user.is_authenticated %}
+  {% comment %} {% if user.is_authenticated %} {% endcomment %}
     <a href="{% url 'add_book' %}">Add New Book</a>
-  {% endif %}
+  {% comment %} {% endif %} {% endcomment %}
 {% endblock %}
